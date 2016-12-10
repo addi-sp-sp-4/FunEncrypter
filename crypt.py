@@ -1,6 +1,6 @@
 import base64
 
-def Import(type):
+def importfile(type):
     questionstring = raw_input("Import " + type + " from file? (y/n): ")
 
     if questionstring == 'y':
@@ -17,7 +17,7 @@ def Import(type):
         output = raw_input(type + ": ")
     return output
 
-def Export(option, string):
+def exportfile(option, string):
     if option == 'y':      
         file = raw_input("Path to file: ")
         file = open(file, 'w')
@@ -50,8 +50,8 @@ if ftype != 'e' and ftype != 'd':
     print "Exiting..."
     exit()
 
-string = Import("String")
-key = Import("Key")
+string = importfile("String")
+key = importfile("Key")
 try:
     if ftype == 'd':
         result = decode(key, string)
@@ -59,7 +59,7 @@ try:
         result = encode(key, string)
     print result
     question = raw_input("Export to file? (y/n): ")
-    Export(question, result)
+    exportfile(question, result)
 except TypeError:
     print "Invalid key"
 
