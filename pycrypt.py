@@ -10,8 +10,10 @@ parser.add_option("-s", help="String", default=False, action="store")
 parser.add_option("--export", "-x", help="Path where you want to store input", default=False, action="store")
 parser.add_option("--encrypt", "-e", help="Encrypt", default=False, action="store_true")
 parser.add_option("--decrypt", "-d", help="Decrypt", default=False, action="store_true")
+parser.add_option("--multiplier", "-m", help="Times en/decrypted", default=1, action="store")
 (args, _) = parser.parse_args()
 #print args
+
 
 if args.key_file == False and args.k == False or args.key_file != False and args.k != False:
     parser.print_help()
@@ -21,6 +23,12 @@ if args.string_file == False and args.s == False or args.string_file != False an
     exit()
 
 if args.encrypt != False and args.decrypt != False:
+    parser.print_help()
+    exit()
+try:
+    multiplier = int(args.multiplier)
+except ValueError:
+    print "Invalid Multiplier"
     parser.print_help()
     exit()
 
@@ -72,12 +80,16 @@ if ex == True:
 if args.encrypt == False:
     try:
         result = decode(key, string)
+        for i in range(multiplier):
+            result = decode(key, result)
     except TypeError:
         print "Whoops, Your key is incorrect"
         print "Exiting..."
         exit()
 else:
     result = encode(key, string)
+    for i in range(multiplier):
+        result = encode(key, result)
 print result
 if args.export != False:
     try:
@@ -85,4 +97,3 @@ if args.export != False:
         file.write(result)
     except IOError:
         print "Whoops, a file error"
-    
