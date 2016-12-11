@@ -3,10 +3,6 @@ Basic Python en/decrypter. DON'T EVER USE FOR SENSITIVE INFORMATION.
 
 Reasonably hard to crack, but by no means impossible.
 
-Usage:
- 
-python2.7 pycrypt.py [Options]
-
 Install:
 
 chmod +x install
@@ -14,9 +10,10 @@ chmod +x install
 ./install
 
 
-if installed:
+Pycrypt:
 
-pycrypt [Options]
+
+Usage: pycrypt [Options]
 
 Options:
 
@@ -35,5 +32,23 @@ Options:
   -e, --encrypt         Encrypt
   -d, --decrypt         Decrypt
   -m MULTIPLIER, --multiplier=MULTIPLIER   Times en/decrypted
+  
+  
+  Pykeygen:
+  
+  Usage: pykeygen [Options]
+  
+  Options:
+  -h, --help            show this help message and exit
+  
+  -l LENGTH, --length=LENGTH   Length of key
+                        
+  -x EXPORT, --export=EXPORT   Path of file to store
+                        
+
+
+  
+  
+  
                         
 
