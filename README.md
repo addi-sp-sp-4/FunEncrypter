@@ -6,6 +6,11 @@ Usage:
  
 python2.7 pycrypt.py [Options]
 
+Install:
+chmod +x install
+./install
+
+
 if installed:
 
 pycrypt [Options]
