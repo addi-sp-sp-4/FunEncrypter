@@ -4,4 +4,8 @@ Reasonably hard to crack, but by no means impossible.
 
 Usage:
  
-python2.7 crypt.py
+python2.7 pycrypt.py [Options]
+
+if installed:
+
+pycrypt [Options]
