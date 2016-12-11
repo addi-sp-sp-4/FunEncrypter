@@ -1,13 +1,17 @@
 #!/bin/bash
 
 if [ "$(id -u)" != "0" ]; then
-   echo "The pycrypt installer must be run as root" 1>&2
+   echo "The installer must be run as root" 1>&2
    exit 1
 fi
 echo '#!/usr/bin/python' > pycrypt
 cat pycrypt.py >> pycrypt
-cp pycrypt /usr/bin/pycrypt
+mv pycrypt /usr/bin/pycrypt
 chmod +x /usr/bin/pycrypt
-rm pycrypt
+
+echo '#!/usr/bin/python' > pykeygen
+cat pykeygen.py >> pykeygen
+mv pykeygen /usr/bin/pykeygen
+chmod +x /usr/bin/pykeygen
 echo "Installed!"
-echo "To use, run pycrypt [Options] from the command line"
+echo "To use, run pycrypt [Options] and pykeygen [Options] from the command line"
