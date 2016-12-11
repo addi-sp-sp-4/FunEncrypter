@@ -7,6 +7,7 @@ fi
 echo '#!/usr/bin/python' > pycrypt
 cat pycrypt.py >> pycrypt
 cp pycrypt /usr/bin/pycrypt
+chmod +x /usr/bin/pycrypt
 rm pycrypt
 echo "Installed!"
 echo "To use, run pycrypt [Options] from the command line"
